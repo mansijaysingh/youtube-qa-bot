@@ -22,8 +22,9 @@ def get_transcript(url):
 
   transcript=ytt_api.fetch(video_id)
 
-  print(transcript)
+  full_text= " ".join(chunk.text for chunk in transcript)
   
+  print(full_text)
 
 if __name__ == "__main__":
   url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
