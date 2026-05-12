@@ -20,8 +20,14 @@ def build_vectorstore(transcript_text):
 
   embeddings= OpenAIEmbeddings()
 
-  print(embeddings)
+  vectorstore=FAISS.from_documents(
 
+    chunks,
+
+    embeddings
+
+  )
+  print(vectorstore)
 
 if __name__ == "__main__":
   sample_text="AI is transforming healthcare. " * 100
