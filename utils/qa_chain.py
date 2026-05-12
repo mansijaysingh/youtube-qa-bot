@@ -22,23 +22,32 @@ def get_answer(question, vectorstore):
    
    context= format_docs(docs)
 
+  #  print("\nRETRIEVED CONTEXT:\n")
+  #  print(context[:1000])
+
+
+
+
    prompt= PromptTemplate.from_template(
-       """
-        You are a helpful assistant that answers questions based only on the YouTube video transcript.
-
-        Context:
-        {context}
-
-        Question:
-        {question}
-
-        Instructions:
-        - Answer only from the given context.
-        - If the answer is not present in the context, say: "I could not find this information in the video."
-        - Keep the answer clear and concise.
-
-        Answer:
         """
+You are a helpful assistant answering questions from a YouTube video transcript.
+
+Use the provided transcript context to answer the question.
+
+Context:
+{context}
+
+Question:
+{question}
+
+Instructions:
+- Answer using the context as much as possible.
+- If the question asks for a general summary, summarize the main ideas from the context.
+- If the exact answer is not directly available, say what can be inferred from the context.
+- Only say "I could not find this information in the video" if the context is empty or completely unrelated.
+
+Answer:
+"""
    )
 
    llm= ChatOpenAI(model="gpt-4o-mini")
@@ -53,3 +62,26 @@ def get_answer(question, vectorstore):
    )
 
    return answer
+
+
+if __name__ == "__main__":
+  #  from transcript import get_transcript
+   from embedder import build_vectorstore
+
+  #  url="https://www.youtube.com/watch?v=iE39q-IKOzA"
+
+   transcript_text = """
+    This video explains artificial intelligence and how it is changing different industries.
+    It discusses machine learning, automation, data analysis, and real-world AI applications.
+    The video also talks about how AI is used in healthcare, education, finance, and customer support.
+    It explains that AI systems can learn from data and help humans make better decisions.
+    """
+
+   vectorstore= build_vectorstore(transcript_text)
+
+   question= "What is this video about?"
+
+   answer= get_answer(question, vectorstore)
+
+   print("\nANSWER:\n")
+   print(answer)
