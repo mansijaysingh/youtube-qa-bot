@@ -1,6 +1,10 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_openai import OpenAI
+from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 def build_vectorstore(transcript_text):
@@ -14,7 +18,9 @@ def build_vectorstore(transcript_text):
 
   chunks= text_splitter.create_documents([transcript_text])
 
-  print(chunks)
+  embeddings= OpenAIEmbeddings()
+
+  print(embeddings)
 
 
 if __name__ == "__main__":
