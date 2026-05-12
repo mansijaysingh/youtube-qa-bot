@@ -27,9 +27,12 @@ def build_vectorstore(transcript_text):
     embeddings
 
   )
-  print(vectorstore)
+  return vectorstore
 
 if __name__ == "__main__":
+
   sample_text="AI is transforming healthcare. " * 100
 
-  build_vectorstore(sample_text)
+  vectorstore= build_vectorstore(sample_text)
+
+  print(vectorstore)
