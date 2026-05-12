@@ -41,8 +41,21 @@ def get_transcript(url):
 
 
 if __name__ == "__main__":
-  url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  
+  urls=[
+    "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
 
-  transcript=get_transcript(url)
+    "https://www.youtube.com/watch?v=aircAruvnKk",
 
-  print(transcript)
+    "https://www.youtube.com/watch?v=iE39q-IKOzA"
+  ]
+
+  for url in urls:
+
+    print("\n========================\n")
+
+    transcript= get_transcript(url)
+
+    print(transcript[:500])
+
+  
