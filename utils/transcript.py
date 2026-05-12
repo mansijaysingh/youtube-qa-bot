@@ -14,17 +14,31 @@ def extract_video_id(url):
   return None
 
 
+
+
 def get_transcript(url):
 
-  video_id= extract_video_id(url)
+  try:
+     
+     video_id=extract_video_id(url)
 
-  ytt_api=YouTubeTranscriptApi()
+     if not video_id:
+       return "Invalid YouTube URL"
+     
+     ytt_api=YouTubeTranscriptApi()
 
-  transcript=ytt_api.fetch(video_id)
+     transcript= ytt_api.fetch(video_id)
 
-  full_text= " ".join(chunk.text for chunk in transcript)
+     full_text= " ".join(chunk.text for chunk in transcript)
+
+     return full_text
   
-  return full_text
+  except Exception as e:
+
+    return f"Error: {str(e)}"
+
+
+
 
 if __name__ == "__main__":
   url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
