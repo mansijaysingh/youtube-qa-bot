@@ -24,9 +24,11 @@ def get_transcript(url):
 
   full_text= " ".join(chunk.text for chunk in transcript)
   
-  print(full_text)
+  return full_text
 
 if __name__ == "__main__":
   url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 
-  get_transcript(url)
+  transcript=get_transcript(url)
+
+  print(transcript)
