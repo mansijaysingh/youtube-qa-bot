@@ -79,9 +79,29 @@ if __name__ == "__main__":
 
    vectorstore= build_vectorstore(transcript_text)
 
-   question= "What is this video about?"
+   questions= [
+      "What is the video about?",
 
-   answer= get_answer(question, vectorstore)
+    "What industries are mentioned?",
 
-   print("\nANSWER:\n")
-   print(answer)
+    "How is AI used in healthcare?",
+
+    "What is machine learning?",
+
+    "What is the main conclusion?"
+   ]
+   
+   for question in questions:
+      print("\n====================\n")
+
+      print("QUESTION:")
+
+      print(question)
+
+      answer= get_answer(question, vectorstore)
+
+      print("\nANSWER:\n")
+      print(answer)
+
+
+   
