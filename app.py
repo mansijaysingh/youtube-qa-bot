@@ -28,6 +28,9 @@ youtube_url = st.text_input(
     "Paste YouTube URL here"
 )
 
+if youtube_url != st.session_state.video_url:
+    st.session_state.vectorstore=None
+
 process_button = st.button(
     "Process Video"
 )
