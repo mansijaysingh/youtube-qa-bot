@@ -35,7 +35,19 @@ def get_transcript(url):
   
   except Exception as e:
 
-    return f"Error: {str(e)}"
+    error_message = str(e)
+
+    if "No transcripts were found" in error_message:
+        return "No transcript available for this video."
+
+    elif "Transcripts are disabled" in error_message:
+        return "Transcripts are disabled for this video."
+
+    elif "Video unavailable" in error_message:
+        return "This video is unavailable or private."
+
+    else:
+        return f"Error: {error_message}"
 
 
 

@@ -43,7 +43,14 @@ if process_button:
 
         transcript_text=get_transcript(youtube_url)
 
-        if transcript_text.startswith("Error:") or transcript_text== "Invalid YouTube URL":
+        if (
+            transcript_text.startswith("Error:")
+            or transcript_text == "Invalid YouTube URL"
+            or transcript_text == "No transcript available for this video."
+            or transcript_text == "Transcripts are disabled for this video."
+            or transcript_text == "This video is unavailable or private."
+
+        ):
 
             st.error(transcript_text)
 
