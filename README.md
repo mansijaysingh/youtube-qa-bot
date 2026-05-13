@@ -120,13 +120,13 @@ python -m streamlit run app.py
 
 ## Homepage
 
-![Homepage](assests)
+![Homepage](assests/home.jpeg)
 
 ---
 
 ## Answer Generation
 
-![Answer](screenshots/answer.png)
+![Answer](assests/question-answer.jpeg)
 
 ---
 
