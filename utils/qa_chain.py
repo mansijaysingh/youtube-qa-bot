@@ -29,22 +29,23 @@ def get_answer(question, vectorstore):
 
 
    prompt= PromptTemplate.from_template(
-        """
-You are a helpful assistant answering questions from a YouTube video transcript.
+       """
+You are an AI assistant answering questions strictly from a YouTube video transcript.
 
-Use the provided transcript context to answer the question.
-
-Context:
+Transcript Context:
 {context}
 
-Question:
+User Question:
 {question}
 
-Instructions:
-- Answer using the context as much as possible.
-- If the question asks for a general summary, summarize the main ideas from the context.
-- If the exact answer is not directly available, say what can be inferred from the context.
-- Only say "I could not find this information in the video" if the context is empty or completely unrelated.
+Answering Rules:
+- Use only the transcript context provided above.
+- Give a clear and direct answer.
+- If the question asks for a summary, summarize the main points from the transcript.
+- If the answer is not available in the transcript context, say:
+  "I could not find this information in the video."
+- Do not make up facts.
+- Keep the answer simple and helpful.
 
 Answer:
 """
