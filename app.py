@@ -38,15 +38,25 @@ if process_button:
         "Extracting transcript and building knowledge base..."
     ):
 
-        transcript_text = get_transcript(youtube_url)
+        transcript_text=get_transcript(youtube_url)
 
-        vectorstore = build_vectorstore(transcript_text)
+        if transcript_text.startswith("Error:") or transcript_text== "Invalid YouTube URL":
 
-        st.session_state.vectorstore = vectorstore
+            st.error(transcript_text)
 
-        st.session_state.video_url = youtube_url
+            st.session_state.vectorstore=None
+        
+        else:
+             vectorstore= build_vectorstore(transcript_text)
 
-    st.success("Video processed successfully!")
+             st.session_state.vectorstore= vectorstore
+
+             st.session_state.video_url= youtube_url
+
+             st.success("Video processed successfully!")
+
+
+    
 
 
 # ✅ Q&A SECTION process_button ke bahar hona chahiye
