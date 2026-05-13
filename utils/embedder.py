@@ -29,10 +29,3 @@ def build_vectorstore(transcript_text):
   )
   return vectorstore
 
-if __name__ == "__main__":
-
-  sample_text="AI is transforming healthcare. " * 100
-
-  vectorstore= build_vectorstore(sample_text)
-
-  print(vectorstore)
