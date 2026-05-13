@@ -5,6 +5,10 @@ An AI-powered YouTube Question Answering application built using LangChain, Open
 The app extracts transcripts from YouTube videos, converts them into vector embeddings, stores them in a FAISS vector database, and allows users to ask questions about the video content using Retrieval-Augmented Generation (RAG).
 
 ---
+# 🌐 Live Demo
+
+[Open App](https://youtube-app-bot.streamlit.app/)
+
 
 # 🚀 Features
 
