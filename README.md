@@ -6,9 +6,7 @@ The app extracts transcripts from YouTube videos, converts them into vector embe
 
 ---
 # 🌐 Live Demo
-
 [Open App](https://youtube-app-bot.streamlit.app/)
-
 
 # 🚀 Features
 
